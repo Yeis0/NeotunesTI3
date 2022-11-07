@@ -1,12 +1,25 @@
 package model;
 
+/**
+ * <b>Podcast</b> is a class that represents a podcast of the application.
+ * @author Yeison Antonio Rodriguez Zuluaga.
+ */
 public class Podcast extends Audio implements Playable {
 
     private String description;
     private Category category;
 
-    public Podcast(String name, double duration, String url, String description, int category){
-        super(name, duration, url);
+    /**
+     * <b>Constructor</b> allows to create a Podcast's object.
+     * @param name is the podcast's name.
+     * @param duration is the podcast's duration.
+     * @param url is the podcast's url.
+     * @param autor is the podcast's autor.
+     * @param description is the podcast's description.
+     * @param category is the podcast's category.
+     */
+    public Podcast(String name, int duration, String url,User autor, String description, int category){
+        super(name, duration, url,autor);
         this.description = description;
 
         switch(category){
@@ -25,26 +38,42 @@ public class Podcast extends Audio implements Playable {
         }
     }
 
-    public String playsStandar(){
+    /**
+     * <b>plays</b> allows to play the podcast.
+     * @return String a message that indicates that the podcast is playing.
+     */
+    public String plays(){
         return "The podcast " + getName() + " is playing";
     }
 
-    public String playsPremium(){
-        return "The podcast " + getName() + " is playing";
-    }
-
+    /**
+     * <b>getDescription</b> allows to get the podcast's description.
+     * @return String the podcast's description.
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     * <b>setDescription</b> allows to set the podcast's description.
+     * @param description is the podcast's description.
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    /**
+     * <b>getCategory</b> allows to get the podcast's category.
+     * @return Category the podcast's category.
+     */
     public Category getCategory() {
         return category;
     }
 
+    /**
+     * <b>setCategory</b> allows to set the podcast's category.
+     * @param category is the podcast's category.
+     */
     public void setCategory(Category category) {
         this.category = category;
     }
