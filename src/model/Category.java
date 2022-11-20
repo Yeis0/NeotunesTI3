@@ -1,31 +1,32 @@
 package model;
 
 /**
- * <b>Category</b> is a enumeration that represents a category of the application.
+ * <b>Category</b> is a enumeration that represents a category of the
+ * application.
+ * 
  * @author Yeison Antonio Rodriguez Zuluaga.
  */
 public enum Category {
 
     /**
-     * <b>POLICY</b><br> represent a policy category.
+     * <b>POLICY</b><br>
+     * represent a policy category.
      */
     POLICY,
     /**
-     * <b>ENTERTAINMENT</b><br> represent a entertainment category.
+     * <b>ENTERTAINMENT</b><br>
+     * represent a entertainment category.
      */
     ENTERTAINMENT,
     /**
-     * <b>VIDEOGAMES</b><br> represent a videogames category.
+     * <b>VIDEOGAMES</b><br>
+     * represent a videogames category.
      */
     VIDEOGAMES,
     /**
-     * <b>FASHION</b><br> represent a fashion category.
+     * <b>FASHION</b><br>
+     * represent a fashion category.
      */
     FASHION;
 
-    /**
-     * a constant that represent the category's amount
-     */
-    public static final int CATEGORY_AMOUNT = 4;
-    
 }

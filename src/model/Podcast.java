@@ -2,6 +2,7 @@ package model;
 
 /**
  * <b>Podcast</b> is a class that represents a podcast of the application.
+ * 
  * @author Yeison Antonio Rodriguez Zuluaga.
  */
 public class Podcast extends Audio implements Playable {
@@ -11,18 +12,19 @@ public class Podcast extends Audio implements Playable {
 
     /**
      * <b>Constructor</b> allows to create a Podcast's object.
-     * @param name is the podcast's name.
-     * @param duration is the podcast's duration.
-     * @param url is the podcast's url.
-     * @param autor is the podcast's autor.
+     * 
+     * @param name        is the podcast's name.
+     * @param duration    is the podcast's duration.
+     * @param url         is the podcast's url.
+     * @param autor       is the podcast's autor.
      * @param description is the podcast's description.
-     * @param category is the podcast's category.
+     * @param category    is the podcast's category.
      */
-    public Podcast(String name, int duration, String url,User autor, String description, int category){
-        super(name, duration, url,autor);
+    public Podcast(String name, int duration, String url, User autor, String description, int category) {
+        super(name, duration, url, autor);
         this.description = description;
 
-        switch(category){
+        switch (category) {
             case 1:
                 this.category = Category.POLICY;
                 break;
@@ -39,15 +41,8 @@ public class Podcast extends Audio implements Playable {
     }
 
     /**
-     * <b>plays</b> allows to play the podcast.
-     * @return String a message that indicates that the podcast is playing.
-     */
-    public String plays(){
-        return "The podcast " + getName() + " is playing";
-    }
-
-    /**
      * <b>getDescription</b> allows to get the podcast's description.
+     * 
      * @return String the podcast's description.
      */
     public String getDescription() {
@@ -56,6 +51,7 @@ public class Podcast extends Audio implements Playable {
 
     /**
      * <b>setDescription</b> allows to set the podcast's description.
+     * 
      * @param description is the podcast's description.
      */
     public void setDescription(String description) {
@@ -64,6 +60,7 @@ public class Podcast extends Audio implements Playable {
 
     /**
      * <b>getCategory</b> allows to get the podcast's category.
+     * 
      * @return Category the podcast's category.
      */
     public Category getCategory() {
@@ -72,12 +69,11 @@ public class Podcast extends Audio implements Playable {
 
     /**
      * <b>setCategory</b> allows to set the podcast's category.
+     * 
      * @param category is the podcast's category.
      */
     public void setCategory(Category category) {
         this.category = category;
     }
 
-
-    
 }
