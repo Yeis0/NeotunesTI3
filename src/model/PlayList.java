@@ -9,7 +9,7 @@ import java.util.Random;
  * 
  * @author Yeison Antonio Rodriguez Zuluaga.
  */
-public class PlayList {
+public class Playlist {
 
     /**
      * a global variable that allows to generate a random number.
@@ -29,7 +29,7 @@ public class PlayList {
      * 
      * @param name is the playlist's name.
      */
-    public PlayList(String name) {
+    public Playlist(String name) {
         this.name = name;
         audioList = new ArrayList<Audio>();
         matriz = new int[6][6];
