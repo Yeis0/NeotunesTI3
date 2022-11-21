@@ -14,7 +14,8 @@ public abstract class Productor extends User {
     private double timePlayed;
 
     /**
-     * <b>Constructor</b> allows to create a Productor's object.
+     * <b>Constructor</b><br>
+     * allows to create a Productor's object.
      * 
      * @param nickName is the user's nickname.
      * @param idNumber is the user's identification number.
@@ -30,6 +31,14 @@ public abstract class Productor extends User {
 
     }
 
+    /**
+     * <b>updateSoldInfo</b><br>
+     * allows to update the productor's information when a song is sold.<br>
+     * <b>pre:</b> the song has been sold.<br>
+     * <b>post:</b> the productor's information has been updated.
+     * 
+     * @param duration is the song's duration.
+     */
     public void updateSoldInfo(int duration){
         accumulatedPlayback++;
         timePlayed+=duration;

@@ -44,6 +44,7 @@ public class NeoTunesApp {
                 if (option < 0 || option > 14) {
                     System.out.println("The option is not valid");
                 }
+                appObject.executeOption(option);
             } while (option < 0 || option > 14);
 
         } while (option != 0);
@@ -62,7 +63,7 @@ public class NeoTunesApp {
                 "4.Edit a playList\n5.Share a playList\n6.Plays a song or a podcast\n7.Buy a song\n8.Show the total playback for audio type");
         System.out.println(
                 "9.Show the most heared song genre\n10.Show the most heared podcast category\n11.Show the top 5 artists or producer\n12.Show the top 5 podcast or songs");
-        System.out.println("13.Show the total sales for all genres\n14.Show the most saled song\n0.Exit");
+        System.out.println("13.Show the total sales for each genre\n14.Show the most saled song\n0.Exit");
         System.out.print("Select an option : ");
     }
 
@@ -307,27 +308,30 @@ public class NeoTunesApp {
         System.out.print("Enter the user's nickname : ");
         String userNickname = reader.nextLine();
         int option;
-        do {
-            System.out.println("Select the action to do : \n3. Change playlist's name\n2. Add audio\n3. Remove audio");
-            option = reader.nextInt();
-            reader.nextLine();
-            if (option < 1 && option > 3) {
-                System.out.println("Invalid option");
+        do{
+            do {
+                System.out.println("Select the action to do : \n1. Change playlist's name\n2. Add audio\n3. Remove audio\n 0.back");
+                option = reader.nextInt();
+                reader.nextLine();
+                if (option < 0 && option > 3) {
+                    System.out.println("Invalid option");
+                }
+            } while (option < 0 && option > 3);
+            if (option == 1) {
+                System.out.print("Enter the new playlist's name : ");
+                String newPlaylistName = reader.nextLine();
+                System.out.println(objectController.editPlaylist(userNickname, playlistName, newPlaylistName));
+            } else if (option == 2) {
+                System.out.print("Enter the audio's name : ");
+                String audioName = reader.nextLine();
+                System.out.println(objectController.addAudioToPlaylist(audioName, playlistName, userNickname));
+            } else if (option == 3) {
+                System.out.print("Enter the audio's name : ");
+                String audioName = reader.nextLine();
+                System.out.println(objectController.removeAudioFromPlaylist(playlistName, userNickname, audioName));
             }
-        } while (option < 1 && option > 3);
-        if (option == 1) {
-            System.out.print("Enter the new playlist's name : ");
-            String newPlaylistName = reader.nextLine();
-            System.out.println(objectController.editPlaylist(userNickname, playlistName, newPlaylistName));
-        } else if (option == 2) {
-            System.out.print("Enter the audio's name : ");
-            String audioName = reader.nextLine();
-            System.out.println(objectController.addAudioToPlaylist(audioName, playlistName, userNickname));
-        } else {
-            System.out.print("Enter the audio's name : ");
-            String audioName = reader.nextLine();
-            System.out.println(objectController.removeAudioFromPlaylist(playlistName, userNickname, audioName));
-        }
+        }while(option != 0);
+        
 
     }
 
@@ -402,20 +406,24 @@ public class NeoTunesApp {
     public void showMostHearedGenre() {
         System.out.println("\n-Most heared genre-");
         int option;
-        do {
-            System.out.println("Select the option: \n1. All the platform\n2. A specific user");
-            option = reader.nextInt();
-            if (option < 1 && option > 2) {
-                System.out.println("Invalid option");
+        do{
+            do {
+                System.out.println("Select the option: \n1. All the platform\n2. A specific user\n 0.back");
+                option = reader.nextInt();
+                reader.nextLine();
+                if (option < 0 && option > 2) {
+                    System.out.println("Invalid option");
+                }
+            } while (option < 0 && option > 2);
+            if (option == 1) {
+                System.out.println(objectController.mostListenedGenre());
+            } else if (option == 2) {
+                System.out.print("Enter the user's nickname : ");
+                String userNickname = reader.nextLine();
+                System.out.println(objectController.mostListenedGenre(userNickname));
             }
-        } while (option < 1 && option > 2);
-        if (option == 1) {
-            System.out.println(objectController.mostListenedGenre());
-        } else {
-            System.out.print("Enter the user's nickname : ");
-            String userNickname = reader.nextLine();
-            System.out.println(objectController.mostListenedGenre(userNickname));
-        }
+        }while (option != 0);
+       
 
     }
 
@@ -427,20 +435,24 @@ public class NeoTunesApp {
     public void showMostHearedCategory() {
         System.out.println("\n-Most heared category-");
         int option;
-        do {
-            System.out.println("Select the option: \n1. All the platform\n2. A specific user");
-            option = reader.nextInt();
-            if (option < 1 && option > 2) {
-                System.out.println("Invalid option");
+        do{
+            do {
+                System.out.println("Select the option: \n1. All the platform\n2. A specific user\n 0.back");
+                option = reader.nextInt();
+                reader.nextLine();
+                if (option < 0 && option > 2) {
+                    System.out.println("Invalid option");
+                }
+            } while (option < 0 && option > 2);
+            if (option == 1) {
+                System.out.println(objectController.mostListenedCategory());
+            } else if (option == 2) {
+                System.out.print("Enter the user's nickname : ");
+                String userNickname = reader.nextLine();
+                System.out.println(objectController.mostListenedCategory(userNickname));
             }
-        } while (option < 1 && option > 2);
-        if (option == 1) {
-            System.out.println(objectController.mostListenedCategory());
-        } else {
-            System.out.print("Enter the user's nickname : ");
-            String userNickname = reader.nextLine();
-            System.out.println(objectController.mostListenedCategory(userNickname));
-        }
+        }while(option != 0);
+        
     }
 
     /**
@@ -472,29 +484,34 @@ public class NeoTunesApp {
         do {
             do {
                 System.out.println(
-                        "Select the genre to show : \n1.Rock\n2. Pop\n3. Trap\4. House\n0.Go back to the main menu");
+                        "Select the genre to show : \n1.Rock\n2. Pop\n3. Trap\n4. House\n0.Go back to the main menu");
                 option = reader.nextInt();
                 reader.nextLine();
                 if (option < 0 && option > 4) {
                     System.out.println("Invalid option");
                 }
             } while (option < 0 && option > 4);
+            String genre="";
             switch (option) {
+                
                 case 1:
-                    System.out.println(objectController.reportByGenre("ROCK"));
+                    genre ="ROCK";
                     break;
                 case 2:
-                    System.out.println(objectController.reportByGenre("POP"));
+                    genre ="POP";
                     break;
                 case 3:
-                    System.out.println(objectController.reportByGenre("TRAP"));
+                    genre = "TRAP";
                     break;
                 case 4:
-                    System.out.println(objectController.reportByGenre("HOUSE"));
+                    genre ="HOUSE";
                     break;
                 default:
                     System.out.println("Returning to the main menu");
                     break;
+            }
+            if (option != 0) {
+                System.out.println(objectController.reportByGenre(genre));
             }
         } while (option != 0);
 

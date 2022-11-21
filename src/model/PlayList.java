@@ -9,7 +9,7 @@ import java.util.Random;
  * 
  * @author Yeison Antonio Rodriguez Zuluaga.
  */
-public class Playlist {
+public class PlayList {
 
     /**
      * a global variable that allows to generate a random number.
@@ -24,11 +24,12 @@ public class Playlist {
     private int podcastAmount;
 
     /**
-     * <b>Constructor</b> allows to create a PlayList's object.
+     * <b>Constructor</b><br>
+     * allows to create a PlayList's object.
      * 
      * @param name is the playlist's name.
      */
-    public Playlist(String name) {
+    public PlayList(String name) {
         this.name = name;
         audioList = new ArrayList<Audio>();
         matriz = new int[6][6];
@@ -38,7 +39,10 @@ public class Playlist {
     }
 
     /**
-     * <b>generateMatrizCode</b> allows to generate a random code.
+     * <b>generateMatrizCode</b><br>
+     * allows to generate a random code.<br>
+     * <b>pre:</b> the playlist has been created.<br>
+     * <b>post:</b> the playlist has a random code.
      */
     public void generateMatrizCode() {
         for (int i = 0; i < 6; i++) {
@@ -50,7 +54,10 @@ public class Playlist {
     }
 
     /**
-     * <b>generateCode</b> allows to generate a code based on the matriz code.
+     * <b>generateCode</b><br>
+     * allows to generate a code based on the type of adios that the matrix code has.<br>
+     * <b>pre:</b> the playlist has been created.<br>
+     * <b>post:</b> the playlist has a code.
      */
     public void generateCode() {
         String id1 = "";
@@ -99,7 +106,10 @@ public class Playlist {
     }
 
     /**
-     * <b>share</b> allows to share the playlist.
+     * <b>share</b><br>
+     * allows to share the playlist.<br>
+     * <b>pre:</b> the playlist has been created.<br>
+     * <b>post:</b> the playlist has been shared.
      * 
      * @return String the playlist's code.
      */
@@ -122,7 +132,10 @@ public class Playlist {
     }
 
     /**
-     * <b>addAudio</b> allows to add an audio to the playlist.
+     * <b>addAudio</b><br>
+     * allows to add an audio to the playlist.<br>
+     * <b>pre:</b> the playlist has been created.<br>
+     * <b>post:</b> the audio has been added to the playlist.
      * 
      * @param audio is the audio to be added.
      * @return String the message that indicates if the audio was added successfully
@@ -149,7 +162,10 @@ public class Playlist {
     }
 
     /**
-     * <b>searchAudio</b> allows to search an audio in the playlist.
+     * <b>searchAudio</b><br>
+     * allows to search an audio in the playlist.<br>
+     * <b>pre:</b> the playlist has been created.<br>
+     * <b>post:</b> the audio has been searched.
      * 
      * @param name is the name of the audio to be searched.
      * @return Audio the audio that was searched.
@@ -170,22 +186,10 @@ public class Playlist {
     }
 
     /**
-     * <b>showAudios</b><br>
-     * allows to show the audios in the playlist.
-     * 
-     * @return String the audios in the playlist.
-     */
-    public String showAudios() {
-        String msg = "";
-        for (int i = 0; i < audioList.size(); i++) {
-            msg += audioList.get(i).getName() + "\n";
-        }
-        return msg;
-    }
-
-    /**
      * <b>removeAudio</b> <br>
      * allows to remove an audio from the playlist.
+     * <b>pre:</b> the playlist has been created.<br>
+     * <b>post:</b> the audio has been removed.
      * 
      * @param audio is the audio to be removed.
      * @return String the message that indicates if the audio was removed
@@ -204,7 +208,8 @@ public class Playlist {
     }
 
     /**
-     * <b>getName</b> allows to get the playlist's name.
+     * <b>getName</b><br>
+     * allows to get the playlist's name.
      * 
      * @return String the playlist's name.
      */
@@ -213,7 +218,8 @@ public class Playlist {
     }
 
     /**
-     * <b>setName</b> allows to set the playlist's name.
+     * <b>setName</b><br>
+     * allows to set the playlist's name.
      * 
      * @param name is the playlist's name.
      */
@@ -222,7 +228,8 @@ public class Playlist {
     }
 
     /**
-     * <b>getAudioList</b> allows to get the audios in the playlist.
+     * <b>getAudioList</b><br>
+     * allows to get the audios in the playlist.
      * 
      * @return ArrayList the audios in the playlist.
      */
@@ -231,7 +238,8 @@ public class Playlist {
     }
 
     /**
-     * <b>setAudioList</b> allows to set the audios in the playlist.
+     * <b>setAudioList</b><br>
+     * allows to set the audios in the playlist.
      * 
      * @param audioList is the audios in the playlist.
      */
@@ -240,7 +248,8 @@ public class Playlist {
     }
 
     /**
-     * <b>getCode</b> allows to get the playlist's code.
+     * <b>getCode</b><br>
+     * allows to get the playlist's code.
      * 
      * @return int[][] the playlist's code.
      */
@@ -249,7 +258,8 @@ public class Playlist {
     }
 
     /**
-     * <b>setCode</b> allows to set the playlist's code.
+     * <b>setCode</b><br>
+     * allows to set the playlist's code.
      * 
      * @param code is the playlist's code.
      */

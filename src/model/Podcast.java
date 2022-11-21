@@ -5,7 +5,7 @@ package model;
  * 
  * @author Yeison Antonio Rodriguez Zuluaga.
  */
-public class Podcast extends Audio implements Playable {
+public class Podcast extends Audio  {
 
     private String description;
     private Category category;

@@ -1,7 +1,8 @@
 package model;
 
 /**
- * <b>Category</b> is a enumeration that represents a category of the
+ * <b>Category</b><br>
+ * is a enumeration that represents a category of the
  * application.
  * 
  * @author Yeison Antonio Rodriguez Zuluaga.

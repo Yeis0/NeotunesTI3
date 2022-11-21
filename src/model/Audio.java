@@ -1,7 +1,8 @@
 package model;
 
 /**
- * <b>Audio</b> is a class that represents an audio of the application.
+ * <b>Audio</b><br>
+ * is a class that represents an audio of the application.
  * 
  * @author Yeison Antonio Rodriguez Zuluaga.
  */
@@ -15,7 +16,8 @@ public abstract class Audio implements Playable {
     private Productor autor;
 
     /**
-     * <b>Constructor</b> allows to create an Audio's object.
+     * <b>Constructor</b><br>
+     * allows to create an Audio's object.
      * 
      * @param name     is the audio's name.
      * @param duration is the audio's duration.
@@ -32,7 +34,8 @@ public abstract class Audio implements Playable {
     }
 
     /**
-     * <b>getName</b> allows to get the audio's name.
+     * <b>getName</b><br>
+     * allows to get the audio's name.
      * 
      * @return String the audio's name.
      */
@@ -40,16 +43,24 @@ public abstract class Audio implements Playable {
         return name;
     }
 
+    /**
+     * <b>plays</b><br>
+     * allows to play the audio.<br>
+     * <b>pre:</b> the audio has been created.<br>
+     * <b>post:</b> the audio has been played.
+     * @return String a message that indicates that the audio is playing.
+     */
     public String plays(){
         totalPlays+=1;
         autor.setAccumulatedPlayback(autor.getAccumulatedPlayback() + 1);
-        return "The audio " + getName() + " is playing";
+        return "The audio " + name + " is playing";
 
 
     }
 
     /**
-     * <b>setName</b> allows to set the audio's name.
+     * <b>setName</b><br>
+     * allows to set the audio's name.
      * 
      * @param name is the audio's name.
      */
@@ -58,7 +69,8 @@ public abstract class Audio implements Playable {
     }
 
     /**
-     * <b>getDuration</b> allows to get the audio's duration.
+     * <b>getDuration</b><br>
+     * allows to get the audio's duration.
      * 
      * @return int the audio's duration.
      */
@@ -67,7 +79,8 @@ public abstract class Audio implements Playable {
     }
 
     /**
-     * <b>setDuration</b> allows to set the audio's duration.
+     * <b>setDuration</b><br>
+     * allows to set the audio's duration.
      * 
      * @param duration is the audio's duration.
      */
@@ -76,7 +89,8 @@ public abstract class Audio implements Playable {
     }
 
     /**
-     * <b>getTotalPlays</b> allows to get the audio's total plays.
+     * <b>getTotalPlays</b><br>
+     * allows to get the audio's total plays.
      * 
      * @return int the audio's total plays.
      */
@@ -85,7 +99,8 @@ public abstract class Audio implements Playable {
     }
 
     /**
-     * <b>setTotalPlays</b> allows to set the audio's total plays.
+     * <b>setTotalPlays</b><br>
+     * allows to set the audio's total plays.
      * 
      * @param totalPlays is the audio's total plays.
      */
@@ -94,7 +109,8 @@ public abstract class Audio implements Playable {
     }
 
     /**
-     * <b>getUrl</b> allows to get the audio's url.
+     * <b>getUrl</b><br>
+     * allows to get the audio's url.
      * 
      * @return String the audio's url.
      */
@@ -103,7 +119,8 @@ public abstract class Audio implements Playable {
     }
 
     /**
-     * <b>setUrl</b> allows to set the audio's url.
+     * <b>setUrl</b><br>
+     * allows to set the audio's url.
      * 
      * @param url is the audio's url.
      */
@@ -112,7 +129,8 @@ public abstract class Audio implements Playable {
     }
 
     /**
-     * <b>getAutor</b> allows to get the audio's autor.
+     * <b>getAutor</b><br>
+     * allows to get the audio's autor.
      * 
      * @return User the audio's autor.
      */
@@ -121,7 +139,8 @@ public abstract class Audio implements Playable {
     }
 
     /**
-     * <b>setAutor</b> allows to set the audio's autor.
+     * <b>setAutor</b><br>
+     * allows to set the audio's autor.
      * 
      * @param autor is the audio's autor.
      */

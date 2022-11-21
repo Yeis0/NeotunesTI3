@@ -1,5 +1,11 @@
 package model;
 
+/**
+ * <b>Sellable</b><br>
+ * is a interface that represents a sellable of the application.
+ * 
+ * @author Yeison Antonio Rodriguez Zuluaga.
+ */
 public interface Sellable {
 
     /**

@@ -1,7 +1,8 @@
 package model;
 
 /**
- * <b>Song</b> is a class that represents a song of the application.
+ * <b>Song</b><br>
+ * is a class that represents a song of the application.
  * 
  * @author Yeison Antonio Rodriguez Zuluaga.
  */
@@ -14,7 +15,8 @@ public class Song extends Audio implements Sellable {
     private Genre genre;
 
     /**
-     * <b>Constructor</b> allows to create a Song's object.
+     * <b>Constructor</b><br>
+     * allows to create a Song's object.
      * 
      * @param name     is the song's name.
      * @param duration is the song's duration.
@@ -29,7 +31,6 @@ public class Song extends Audio implements Sellable {
         this.album = album;
         this.price = price;
         sellAmount=0;
-
 
         switch (genre) {
             case 1:
@@ -47,6 +48,14 @@ public class Song extends Audio implements Sellable {
         }
     }
 
+    /**
+     * <b>sell</b><br>
+     * allows to sell a song.<br>
+     * <b>pre:</b> the song must be created.<br>
+     * <b>post:</b> the song will be sold.<br>
+     * 
+     * @return String the information about the sell operation.
+     */
     public String sell(){
         sellAmount++;
         super.getAutor().updateSoldInfo(super.getDuration());
@@ -54,13 +63,22 @@ public class Song extends Audio implements Sellable {
         
     }
 
+    /**
+     * <b>totalSell</b><br>
+     * allows to get the total sell of the song.<br>
+     * <b>pre:</b> the song must be created.<br>
+     * <b>post:</b> the total sell will be returned.<br>
+     * 
+     * @return double the total sell of the song.
+     */
     public double totalSell(){
         double totalSells= sellAmount*price;
         return totalSells;
     }
 
     /**
-     * <b>getAlbum</b> allows to get the song's album.
+     * <b>getAlbum</b><br>
+     * allows to get the song's album.
      * 
      * @return String the song's album.
      */
@@ -69,7 +87,8 @@ public class Song extends Audio implements Sellable {
     }
 
     /**
-     * <b>setAlbum</b> allows to set the song's album.
+     * <b>setAlbum</b><br>
+     * allows to set the song's album.
      * 
      * @param album is the song's album.
      */
@@ -78,7 +97,8 @@ public class Song extends Audio implements Sellable {
     }
 
     /**
-     * <b>getPrice</b> allows to get the song's price.
+     * <b>getPrice</b><br>
+     * allows to get the song's price.
      * 
      * @return double the song's price.
      */
@@ -87,7 +107,8 @@ public class Song extends Audio implements Sellable {
     }
 
     /**
-     * <b>setPrice</b> allows to set the song's price.
+     * <b>setPrice</b><br>
+     * allows to set the song's price.
      * 
      * @param price is the song's price.
      */
@@ -96,7 +117,8 @@ public class Song extends Audio implements Sellable {
     }
 
     /**
-     * <b>getSellAmount</b> allows to get the song's sell amount.
+     * <b>getSellAmount</b><br>
+     * allows to get the song's sell amount.
      * 
      * @return int the song's sell amount.
      */
@@ -105,7 +127,8 @@ public class Song extends Audio implements Sellable {
     }
 
     /**
-     * <b>setSellAmount</b> allows to set the song's sell amount.
+     * <b>setSellAmount</b><br>
+     * allows to set the song's sell amount.
      * 
      * @param sellAmount is the song's sell amount.
      */
@@ -114,7 +137,8 @@ public class Song extends Audio implements Sellable {
     }
 
     /**
-     * <b>getGenre</b> allows to get the song's genre.
+     * <b>getGenre</b><br>
+     * allows to get the song's genre.
      * 
      * @return Genre the song's genre.
      */
@@ -123,7 +147,8 @@ public class Song extends Audio implements Sellable {
     }
 
     /**
-     * <b>setGenre</b> allows to set the song's genre.
+     * <b>setGenre</b><br>
+     * allows to set the song's genre.
      * 
      * @param genre is the song's genre.
      */

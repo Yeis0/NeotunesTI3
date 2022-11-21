@@ -1,7 +1,5 @@
 package model;
 
-import java.util.Random;
-
 /**
  * <b>Consumer</b> <br>
  * This class represents a standar consumer of the application.
@@ -10,16 +8,22 @@ import java.util.Random;
  */
 public class Estandar extends Consumer {
 
-    // private Audio[] audios;
-    // private Playlist[] playlists;
+    /**
+     * A constant that represents the maximum number of songs that a consumer can
+     * buy.
+     */
     public static final int MAX_AUDIOS = 100;
+    /**
+     * A constant that represents the maximum number of playlists that a consumer
+     * can create.
+     */
     public static final int MAX_PLAYLISTS = 20;
-    public static Random random = new Random();
+
     private int currentPlaybacks;
 
     /**
      * <b>Constructor</b><br>
-     *  allows to create a Consumer's object.
+     * allows to create a Consumer's object.
      * 
      * @param nickName is the user's nickname.
      * @param idNumber is the user's identification number.
@@ -82,12 +86,9 @@ public class Estandar extends Consumer {
         boolean available = isAvailablePlaylist();
         if (obj == null) {
             if (available) {
-                for (int i = 0; i < super.getPlaylists().size() && obj == null; i++) {
-                    if (super.getPlaylists().get(i) == null) {
-                        super.getPlaylists().add(new Playlist(name));
-                        obj = super.getPlaylists().get(i);
-                    }
-                }
+
+                super.getPlaylists().add(new Playlist(name));
+
             } else {
                 msg = "The user has reached the maximum number of playlists";
             }
@@ -96,54 +97,6 @@ public class Estandar extends Consumer {
         }
 
         return msg;
-
-    }
-
-    /**
-     * <b>addAudioToPlaylist</b><br>
-     * allows to add an audio to a playlist.<br>
-     * <b>pre:</b> the audio and the playlist must be already created.<br>
-     * <b>post:</b> the audio will be added to the playlist.<br>
-     * 
-     * @param name  is the name of the playlist.
-     * @param audio is the audio to be added.
-     * @return String the message that indicates if the audio was added successfully
-     *         or not.
-     */
-    public String addAudioToPlaylist(String name, Audio audio) {
-
-        String msg = "The audio was added succesfully";
-        Playlist obj = searchPlaylist(name);
-        if (obj != null) {
-            msg = obj.addAudio(audio);
-        } else {
-            msg = "The playlist does not exist";
-        }
-
-        return msg;
-    }
-
-    /**
-     * <b>searchPlaylist</b><br>
-     * allows to search a playlist by its name.<br>
-     * <b>pre:</b> the playlist must be already created.<br>
-     * <b>post:</b> the playlist will be searched.<br>
-     * 
-     * @param name is the name of the playlist to be searched.
-     * @return PlayList the playlist found.
-     */
-    public Playlist searchPlaylist(String name) {
-
-        Playlist obj = null;
-        boolean search = false;
-        for (int i = 0; i < super.getPlaylists().size() && !search; i++) {
-            if (super.getPlaylists().get(i) != null && super.getPlaylists().get(i).getName().equalsIgnoreCase(name)) {
-                obj = super.getPlaylists().get(i);
-                search = true;
-            }
-        }
-
-        return obj;
 
     }
 
@@ -187,7 +140,7 @@ public class Estandar extends Consumer {
 
     /**
      * <b>isAvailableSong</b><br>
-     *  allows to know if the user can add more audios.<br>
+     * allows to know if the user can add more audios.<br>
      * <b>pre:</b> the shop list must exist.<br>
      * <b>post:</b> the availability has been found.<br>
      * 
@@ -202,92 +155,35 @@ public class Estandar extends Consumer {
     }
 
     /**
-     * <b>editPlaylist</b><br>
-     * allows to edit a playlist.<br>
-     * <b>pre:</b> the playlist must be already created.<br>
-     * <b>post:</b> the playlist will be edited.<br>
-     * 
-     * @param name    is the name of the playlist to be edited.
-     * @param newName is the new name of the playlist.
-     * @return String the message that indicates if the playlist was edited
-     *         successfully or not.
-     */
-    public String editPlaylist(String name, String newName) {
-        String msg = "The playlist was edited succesfully";
-        Playlist obj = searchPlaylist(name);
-        if (obj != null) {
-            obj.setName(newName);
-        } else {
-            msg = "The playlist does not exist";
-        }
-        return msg;
-    }
-
-
-    /**
-     * <b>removeAudioFromPlaylist</b><br>
-     * allows to remove an audio from a playlist.<br>
-     * <b>pre:</b> the audio and the playlist must be already created.<br>
-     * <b>post:</b> the audio will be removed from the playlist.<br>
-     * 
-     * @param name  is the name of the playlist.
-     * @param audio is the audio to be removed.
-     * @return String the message that indicates if the audio was removed
-     *         successfully or not.
-     */
-    public String removeAudioFromPlaylist(String name, Audio audio) {
-        String msg = "The audio was removed succesfully";
-        Playlist obj = searchPlaylist(name);
-        if (obj != null) {
-            msg = obj.removeAudio(audio);
-        } else {
-            msg = "The playlist does not exist";
-        }
-        return msg;
-    }
-
-    /**
-     * <b>sharePlaylist</b><br>
-     * allows to share a playlist with another user.<br>
-     * <b>pre:</b> the playlist must be already created.<br>
-     * <b>post:</b> the playlist will be shared.<br>
-     * 
-     * @param name is the name of the playlist.
-     * @return String the message that indicates if the playlist was shared
-     *         successfully or not.
-     */
-    public String sharePlaylist(String name) {
-        String msg = "The playlist was shared succesfully";
-        Playlist obj = searchPlaylist(name);
-        if (obj != null) {
-            obj.share();
-        } else {
-            msg = "The playlist does not exist";
-        }
-        return msg;
-    }
-
-    /**
      * <b>songAd</b><br>
      * allows to know if an add will be played.<br>
      * <b>pre:</b> the shop list must be already created.<br>
      * <b>post:</b> the instruction about the ad will be give.<br>
+     * 
      * @return boolean true if an add will be played, false if not.
      */
-    public boolean songAd(){
+    public boolean songAd() {
         boolean ad = false;
-        if (currentPlaybacks==2){
+        if (currentPlaybacks == 2) {
             ad = true;
             currentPlaybacks = 0;
-        }else{
+        } else {
             currentPlaybacks++;
         }
         return ad;
     }
 
+    @Override
+    public String playAudio(Audio audio){
+
+        return super.playAudio(audio);
+
+    }
+
     /**
      * <b>getCurrentPlaybacks</b><br>
      * allows to know the current playbacks.<br>
+     * 
      * @return int the current playbacks.
      */
     public int getCurrentPlaybacks() {
@@ -297,6 +193,7 @@ public class Estandar extends Consumer {
     /**
      * <b>setCurrentPlaybacks</b><br>
      * allows to set the current playbacks.<br>
+     * 
      * @param currentPlaybacks is the current playbacks to be set.
      */
     public void setCurrentPlaybacks(int currentPlaybacks) {

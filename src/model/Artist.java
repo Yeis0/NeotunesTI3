@@ -13,7 +13,8 @@ public class Artist extends Productor {
     private ArrayList<Song> songs;
 
     /**
-     * <b>Constructor</b> allows to create an Artist's object.
+     * <b>Constructor</b><br>
+     * allows to create an Artist's object.
      * 
      * @param nickName is the user's nickname.
      * @param idNumber is the user's identification number.
@@ -26,7 +27,10 @@ public class Artist extends Productor {
     }
 
     /**
-     * <b>addAudio</b> allows to add a song to the artist's list of songs.
+     * <b>addAudio</b><br>
+     * allows to add a song to the artist's list of songs.<br>
+     * <b>pre:</b> the song must be not added before.<br>
+     * <b>post:</b> the song will be added to the artist's list of songs.<br>
      * 
      * @param audio is the song to be added.
      * @return String the message that indicates if the song was added successfully
@@ -46,7 +50,10 @@ public class Artist extends Productor {
     }
 
     /**
-     * <b>searchAudio</b> allows to search an audio in the artist's list of audios.
+     * <b>searchAudio</b><br>
+     * allows to search an audio in the artist's list of audios.<br>
+     * <b>pre:</b> the audio must be added before.<br>
+     * <b>post:</b> the audio will be searched in the artist's list of audios.<br>
      * 
      * @param name is the name of the audio to be searched.
      * @return Audio the audio that was searched.
@@ -69,7 +76,8 @@ public class Artist extends Productor {
     }
 
     /**
-     * <b>getSongs</b> allows to get the artist's list of songs.
+     * <b>getSongs</b><br>
+     * allows to get the artist's list of songs.
      * 
      * @return ArrayList the artist's list of songs.
      */
@@ -78,7 +86,8 @@ public class Artist extends Productor {
     }
 
     /**
-     * <b>setSongs</b> allows to set the artist's list of songs.
+     * <b>setSongs</b><br>
+     * allows to set the artist's list of songs.
      * 
      * @param songs is the artist's list of songs.
      */

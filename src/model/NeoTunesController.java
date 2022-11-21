@@ -300,6 +300,7 @@ public class NeoTunesController {
         Audio audio = searchAudio(nameAudios);
         if (obj != null) {
             if (obj instanceof Consumer) {
+                
                 if (audio != null) {
                     if (obj instanceof Premium) {
                         msg = ((Premium) obj).playAudio(audio);
@@ -308,13 +309,13 @@ public class NeoTunesController {
                         if (audio instanceof Song) {
                             if (obj1.songAd()) {
                                 msg += showAd();
-                                msg += "\n" + ((Estandar) obj).playAudio(audio);
+                                msg += "\n" + ( obj1).playAudio(audio);
                             } else {
-                                msg = ((Estandar) obj).playAudio(audio);
+                                msg = ( obj1).playAudio(audio);
                             }
                         } else {
                             msg += showAd();
-                            msg += "\n" + ((Estandar) obj).playAudio(audio);
+                            msg += "\n" + (obj1).playAudio(audio);
                         }
 
                     }
@@ -467,6 +468,8 @@ public class NeoTunesController {
             if (obj instanceof Consumer) {
                 Consumer obj1 = (Consumer) obj;
                 msg = obj1.mostHearedGenre();
+            }else{
+                msg = "The user is not a consumer";
             }
 
         } else {
@@ -730,7 +733,10 @@ public class NeoTunesController {
 
         Productor max = null;
         int counter = 0;
-        max = artists.get(0);
+        if (artists.size()>0){
+            max = artists.get(0);
+        }
+        
         for (int i = 0; i < artists.size(); i++) {
 
             if (artists.get(i).getAccumulatedPlayback() > max.getAccumulatedPlayback()) {
@@ -752,7 +758,10 @@ public class NeoTunesController {
         }
 
         counter = 0;
-        max = contentCreators.get(0);
+        if (contentCreators.size()>0){
+            max = contentCreators.get(0);
+        }
+        
         for (int i = 0; i < contentCreators.size(); i++) {
 
             if (contentCreators.get(i).getAccumulatedPlayback() > max.getAccumulatedPlayback()) {
@@ -814,7 +823,9 @@ public class NeoTunesController {
 
         int counter = 0;
         Audio max = null;
-        max = songs.get(0);
+        if (songs.size() > 0) {
+            max = songs.get(0);
+        }
         for (int i = 0; i < songs.size(); i++) {
 
             if (songs.get(i).getTotalPlays() > max.getTotalPlays()) {
@@ -836,7 +847,9 @@ public class NeoTunesController {
         }
 
         counter = 0;
-        max = podcasts.get(0);
+        if (podcasts.size() > 0) {
+            max = podcasts.get(0);
+        }
         for (int i = 0; i < podcasts.size(); i++) {
 
             if (podcasts.get(i).getTotalPlays() > max.getTotalPlays()) {
@@ -859,7 +872,7 @@ public class NeoTunesController {
         for (int i = 0; i < top10A.length; i++) {
             if (top10A[i] != null) {
                 msg = "The top 10 songs are:\n ";
-                msg += (i + 1) + "." + top10A[i].getName() + "with genre: " + top10A[i].getGenre().name() + " with "
+                msg += (i + 1) + "." + top10A[i].getName() + ", with genre: " + top10A[i].getGenre().name() + " with "
                         + top10A[i].getTotalPlays() + " plays";
             }
         }
@@ -867,7 +880,7 @@ public class NeoTunesController {
         for (int i = 0; i < top10P.length; i++) {
             if (top10P[i] != null) {
                 msg += "\nThe top 10 podcasts are:\n ";
-                msg += (i + 1) + "." + top10P[i].getName() + "with Category: " + top10P[i].getCategory().name()
+                msg += (i + 1) + "." + top10P[i].getName() + ", with Category: " + top10P[i].getCategory().name()
                         + " with " + top10P[i].getTotalPlays() + " plays";
             }
         }
@@ -885,7 +898,7 @@ public class NeoTunesController {
      * @return String This returns a message that shows the report by genre.
      */
     public String reportByGenre(String genre) {
-        String msg = "The genre has not been listened to";
+        String msg = "The genre has not been sold";
         int count = 0;
         for (int i = 0; i < audios.size(); i++) {
             if (audios.get(i) instanceof Song) {
@@ -893,12 +906,12 @@ public class NeoTunesController {
                 Song s = (Song) audios.get(i);
                 if (s.getGenre().name().equals(genre)) {
 
-                    count += s.getTotalPlays();
+                    count += s.getSellAmount();
                 }
             }
         }
         if (count > 0) {
-            msg = "The genre " + genre + " has been listened to " + count + " times";
+            msg = "The genre " + genre + " has been sold " + count + " times";
         }
         return msg;
     }

@@ -1,7 +1,8 @@
 package model;
 
 /**
- * <b>Genre</b> is a enumeration that represents a genre of the application.
+ * <b>Genre</b><br>
+ * is a enumeration that represents a genre of the application.
  * 
  * @author Yeison Antonio Rodriguez Zuluaga.
  */
@@ -27,10 +28,4 @@ public enum Genre {
      * represent a house genre.
      */
     HOUSE;
-
-    /**
-     * a constant that represent the genre's amount
-     */
-    public static final int GENRE_AMOUNT = 4;
-
 }

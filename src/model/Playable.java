@@ -8,7 +8,8 @@ package model;
 public interface Playable {
 
     /**
-     * <b>plays</b> allows to play the playable.
+     * <b>plays</b> <br>
+     * allows to play the playable.
      * 
      * @return String a message that indicates that the playable is playing.
      */

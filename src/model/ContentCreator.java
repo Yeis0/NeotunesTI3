@@ -13,7 +13,8 @@ public class ContentCreator extends Productor {
     private ArrayList<Podcast> podcasts;
 
     /**
-     * <b>Constructor</b> allows to create a ContentCreator's object.
+     * <b>Constructor</b><br>
+     * allows to create a ContentCreator's object.
      * 
      * @param nickName is the user's nickname.
      * @param idNumber is the user's identification number.
@@ -26,7 +27,10 @@ public class ContentCreator extends Productor {
     }
 
     /**
-     * <b>addAudio</b> allows to add a podcast to the user's list of podcasts.
+     * <b>addAudio</b><br>
+     * allows to add a podcast to the user's list of podcasts.<br>
+     * <b>pre:</b> the podcast must be not added before.<br>
+     * <b>post:</b> the podcast will be added to the user's list of podcasts.<br>
      * 
      * @param audio is the podcast to be added.
      * @return String the message of the operation.
@@ -44,7 +48,10 @@ public class ContentCreator extends Productor {
     }
 
     /**
-     * <b>searchAudio</b> allows to search an audio in the user's list of audios.
+     * <b>searchAudio</b><br>
+     * allows to search an audio in the user's list of audios.<br>
+     * <b>pre:</b> the audio must be added before.<br>
+     * <b>post:</b> the audio will be searched in the user's list of audios.<br>
      * 
      * @param name is the name of the audio to be searched.
      * @return Audio the audio found.
@@ -67,7 +74,8 @@ public class ContentCreator extends Productor {
     }
 
     /**
-     * <b>getPodcasts</b> allows to get the user's list of podcasts.
+     * <b>getPodcasts</b><br>
+     * allows to get the user's list of podcasts.
      * 
      * @return ArrayList the user's list of podcasts.
      */
@@ -76,7 +84,8 @@ public class ContentCreator extends Productor {
     }
 
     /**
-     * <b>setPodcasts</b> allows to set the user's list of podcasts.
+     * <b>setPodcasts</b><br>
+     * allows to set the user's list of podcasts.
      * 
      * @param podcasts is the user's list of podcasts.
      */
