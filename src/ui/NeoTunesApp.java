@@ -43,8 +43,9 @@ public class NeoTunesApp {
                 reader.nextLine();
                 if (option < 0 || option > 14) {
                     System.out.println("The option is not valid");
+                }else{
+                    appObject.executeOption(option);
                 }
-                appObject.executeOption(option);
             } while (option < 0 || option > 14);
 
         } while (option != 0);
